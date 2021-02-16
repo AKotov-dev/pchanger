@@ -1,0 +1,115 @@
+[NAME]
+name=pchanger
+
+[VERSION]
+version=1.3
+
+[RELEASE]
+release=3.mrx7
+
+[GROUP]
+group=Applications/System
+
+[DESCRIPTION]
+0=The program is designed to easily change the Plymouth theme in MgaRemix Linux
+1=...
+2=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2020
+
+[SUMMARY]
+summary=Plymouth theme changer
+
+[URLCOPY]
+urlcopy=https://cloud.mail.ru/public/5kma/573FjdpNE
+
+[LICENSE]
+license=GPLv3+
+
+[DEPS]
+deps=sakura gettext binutils plymouth plymouth-x11 plymouth-plugin-two-step
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=0
+
+[SIGN]
+sign=0
+
+[FILES]
+0=/usr/bin/pchanger
+1=/usr/share/pchanger/
+2=/usr/share/doc/pchanger/
+3=/usr/share/icons/pchanger.png
+4=/usr/share/applications/pchanger.desktop
+5=/usr/share/polkit-1/actions/pchanger.policy
+6=/usr/share/plymouth/themes/apple-mac-plymouth/
+7=/usr/share/plymouth/themes/breeze-neon/
+8=/usr/share/plymouth/themes/dandelion/
+9=/usr/share/plymouth/themes/greatest/
+10=/usr/share/plymouth/themes/macbuntu/
+11=/usr/share/plymouth/themes/mageia/
+12=/usr/share/plymouth/themes/Mageia-ColdFire/
+13=/usr/share/plymouth/themes/Mageia-Minimal/
+14=/usr/share/plymouth/themes/MgaRemix/
+15=/usr/share/plymouth/themes/mud-waiting/
+16=/usr/share/plymouth/themes/mud-world-black/
+17=/usr/share/plymouth/themes/mud-world-blue/
+18=/usr/share/plymouth/themes/percentage/
+19=/usr/share/plymouth/themes/pisi-color/
+20=/usr/share/plymouth/themes/wonderland/
+21=/usr/share/plymouth/themes/Bass-SoCool-Slick-Line/
+22=/usr/share/plymouth/themes/kameleon/
+23=/usr/share/plymouth/themes/lighthouseplymouth/
+24=/usr/share/plymouth/themes/lilith-glamour/
+25=/usr/share/plymouth/themes/lite_spinner/
+26=/usr/share/plymouth/themes/marylin/
+27=/usr/share/plymouth/themes/mugre-logo/
+28=/usr/share/plymouth/themes/pokemon/
+29=/usr/share/plymouth/themes/MgaRemix-Lite/
+30=/usr/share/plymouth/themes/PlymouthTheme-Cat/
+31=/usr/share/plymouth/themes/adapiluv/
+32=/usr/share/plymouth/themes/kodi-animated-logo/
+33=/usr/share/plymouth/themes/tux-plymouth-theme/
+
+[AFTERINSTALL]
+0=#ldconfig
+1=#update-desktop-database -q /usr/share/applications
+2=#update-mime-database /usr/share/mime
+3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
+
+[AFTERREMOVE]
+0=#ldconfig
+1=#update-desktop-database -q /usr/share/applications
+2=#update-mime-database /usr/share/mime
+3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
+
+[URL32]
+url32=https://cloud.mail.ru/public/5kma/573FjdpNE
+
+[URL64]
+url64=https://cloud.mail.ru/public/5kma/573FjdpNE
+
+[PROGRAMNAME]
+programname=pchanger
+
+[DEVTOOL]
+devtool=Lazarus
+
+[TOOLVERSION]
+toolversion=1.8.4
+
+[INFO]
+0=The program is designed to easily change the Plymouth theme in MgaRemix Linux
+1=The program uses Plymouth themes from the resource: https://www.gnome-look.org/browse/cat/108/order/latest/
+2=All themes are contained here: /usr/share/plymouth/themes/
+3=
+4=Theme demonstration:
+5=---
+6=plymouthd; plymouth --show-splash ; for ((I=0; I<10; I++)); do plymouth --update=test$I ; sleep 1; done; plymouth quit

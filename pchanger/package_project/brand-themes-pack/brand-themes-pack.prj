@@ -1,0 +1,103 @@
+[NAME]
+name=brand-themes-pack
+
+[VERSION]
+version=0.1
+
+[RELEASE]
+release=0.mrx7
+
+[GROUP]
+group=Development/Libraries
+
+[DESCRIPTION]
+0=A collection of Plymouth themes from popular computer manufacturers:
+1=Acer, Asus, Dell, HP, Huawei, Lenovo, LG, Samsung, ThingPad, Vaio, Xiaomi
+2=https://github.com/gevera/plymouth_themes
+3=...
+4=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2020
+
+[SUMMARY]
+summary=Plymouth themes collection of brands: Asus, Dell, Vaio & etc...
+
+[URLCOPY]
+urlcopy=https://cloud.mail.ru/public/46Jp/3quUGow4h
+
+[LICENSE]
+license=GPLv3+
+
+[DEPS]
+deps=plymouth plymouth-x11 plymouth-plugin-two-step
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=1
+
+[SIGN]
+sign=0
+
+[FILES]
+0=/usr/share/plymouth/themes/acer10/
+1=/usr/share/plymouth/themes/acerdar/
+2=/usr/share/plymouth/themes/asus10/
+3=/usr/share/plymouth/themes/asusdar/
+4=/usr/share/plymouth/themes/dell10/
+5=/usr/share/plymouth/themes/delldar/
+6=/usr/share/plymouth/themes/hp10/
+7=/usr/share/plymouth/themes/hpdar/
+8=/usr/share/plymouth/themes/huawei10/
+9=/usr/share/plymouth/themes/huaweidar/
+10=/usr/share/plymouth/themes/lenovo10/
+11=/usr/share/plymouth/themes/lenovodar/
+12=/usr/share/plymouth/themes/lg10/
+13=/usr/share/plymouth/themes/lgdar/
+14=/usr/share/plymouth/themes/samsung10/
+15=/usr/share/plymouth/themes/samsungdar/
+16=/usr/share/plymouth/themes/think10/
+17=/usr/share/plymouth/themes/thinkdar/
+18=/usr/share/plymouth/themes/vaio10/
+19=/usr/share/plymouth/themes/vaiodar/
+20=/usr/share/plymouth/themes/xiaomi10/
+21=/usr/share/plymouth/themes/xiaomidar/
+22=/usr/share/doc/brand-themes-pack/
+
+[AFTERINSTALL]
+0=#ldconfig
+1=#update-desktop-database -q /usr/share/applications
+2=#update-mime-database /usr/share/mime
+3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
+
+[AFTERREMOVE]
+0=#ldconfig
+1=#update-desktop-database -q /usr/share/applications
+2=#update-mime-database /usr/share/mime
+3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
+
+[URL32]
+url32=https://github.com/gevera/plymouth_themes
+
+[URL64]
+url64=
+
+[PROGRAMNAME]
+programname=brand-themes-pack
+
+[DEVTOOL]
+devtool=none
+
+[TOOLVERSION]
+toolversion=none
+
+[INFO]
+0=A collection of Plymouth themes from popular computer manufacturers:
+1=Acer, Asus, Dell, HP, Huawei, Lenovo, LG, Samsung, ThingPad, Vaio, Xiaomi
+2=
+3=URL: https://github.com/gevera/plymouth_themes

@@ -1,0 +1,103 @@
+[NAME]
+name=android-themes-pack1
+
+[VERSION]
+version=0.1
+
+[RELEASE]
+release=0.mrx7
+
+[GROUP]
+group=Development/Libraries
+
+[DESCRIPTION]
+0=A hugh collection (80+) of plymouth themes ported from android bootanimations
+1=https://github.com/adi1090x/plymouth-themes
+2=https://forum.xda-developers.com/android/themes/alienware-t3721978
+3=...
+4=More information: /usr/share/doc/package_name/repack.txt
+
+[MAINTAINER]
+maintainer=Alex Kotov
+
+[VENDOR]
+vendor=alex_q_2000 (C) 2020
+
+[SUMMARY]
+summary=A hugh collection (80+) of plymouth themes
+
+[URLCOPY]
+urlcopy=https://forum.xda-developers.com/android/themes/alienware-t3721978
+
+[LICENSE]
+license=GPLv3+
+
+[DEPS]
+deps=plymouth plymouth-x11 plymouth-plugin-two-step
+
+[META]
+meta=0
+
+[NOARCH]
+noarch=1
+
+[SIGN]
+sign=0
+
+[FILES]
+0=/usr/share/plymouth/themes/abstract_ring/
+1=/usr/share/plymouth/themes/abstract_ring_alt/
+2=/usr/share/plymouth/themes/alienware/
+3=/usr/share/plymouth/themes/angular/
+4=/usr/share/plymouth/themes/angular_alt/
+5=/usr/share/plymouth/themes/black_hud/
+6=/usr/share/plymouth/themes/blockchain/
+7=/usr/share/plymouth/themes/circle/
+8=/usr/share/plymouth/themes/circle_alt/
+9=/usr/share/plymouth/themes/circle_flow/
+10=/usr/share/plymouth/themes/circle_hud/
+11=/usr/share/plymouth/themes/circuit/
+12=/usr/share/plymouth/themes/colorful/
+13=/usr/share/plymouth/themes/colorful_loop/
+14=/usr/share/plymouth/themes/colorful_sliced/
+15=/usr/share/plymouth/themes/connect/
+16=/usr/share/plymouth/themes/cross_hud/
+17=/usr/share/plymouth/themes/cubes/
+18=/usr/share/plymouth/themes/cuts/
+19=/usr/share/plymouth/themes/cuts_alt/
+20=/usr/share/doc/android-themes-pack1/
+
+[AFTERINSTALL]
+0=#ldconfig
+1=#update-desktop-database -q /usr/share/applications
+2=#update-mime-database /usr/share/mime
+3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
+
+[AFTERREMOVE]
+0=#ldconfig
+1=#update-desktop-database -q /usr/share/applications
+2=#update-mime-database /usr/share/mime
+3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
+
+[URL32]
+url32=https://github.com/adi1090x/plymouth-themes
+
+[URL64]
+url64=
+
+[PROGRAMNAME]
+programname=android-themes-pack1
+
+[DEVTOOL]
+devtool=none
+
+[TOOLVERSION]
+toolversion=none
+
+[INFO]
+0=A big collection of plymouth themes, ported from android bootanimation
+1=
+2=URL1: https://github.com/adi1090x/plymouth-themes
+3=URL2: https://forum.xda-developers.com/android/themes/alienware-t3721978
+4=
+5=Demo album: https://www.buymeacoffee.com/p/44845

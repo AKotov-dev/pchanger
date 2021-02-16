@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: pchanger\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: alex_q_2000\n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Language: ru_RU\n"
+
+#: tmainform.caption
+msgctxt "tmainform.caption"
+msgid "Plymouth Changer"
+msgstr ""
+
+#: tmainform.image1.hint
+msgid "apple-mac-plymouth"
+msgstr ""
+
+#: tmainform.image10.hint
+msgid "mud-waiting"
+msgstr ""
+
+#: tmainform.image11.hint
+msgid "mud-world-black"
+msgstr ""
+
+#: tmainform.image12.hint
+msgid "mud-world-blue"
+msgstr ""
+
+#: tmainform.image13.hint
+msgid "dandelion"
+msgstr ""
+
+#: tmainform.image14.hint
+msgid "wonderland"
+msgstr ""
+
+#: tmainform.image15.hint
+msgctxt "tmainform.image15.hint"
+msgid "MgaRemix"
+msgstr ""
+
+#: tmainform.image16.hint
+msgctxt "tmainform.image16.hint"
+msgid "MgaRemix-Lite"
+msgstr ""
+
+#: tmainform.image17.hint
+msgctxt "tmainform.image17.hint"
+msgid "lilith-glamour"
+msgstr ""
+
+#: tmainform.image18.hint
+msgid "lighthouseplymouth"
+msgstr ""
+
+#: tmainform.image19.hint
+msgid "PlymouthTheme-Cat"
+msgstr ""
+
+#: tmainform.image2.hint
+msgid "breeze-neon"
+msgstr ""
+
+#: tmainform.image20.hint
+msgid "Bass-SoCool-Slick-Line"
+msgstr ""
+
+#: tmainform.image21.hint
+msgid "kameleon"
+msgstr ""
+
+#: tmainform.image22.hint
+msgid "marylin"
+msgstr ""
+
+#: tmainform.image23.hint
+msgid "mugre-logo"
+msgstr ""
+
+#: tmainform.image24.hint
+msgid "pokemon"
+msgstr ""
+
+#: tmainform.image25.hint
+msgid "lite_spinner"
+msgstr ""
+
+#: tmainform.image26.hint
+msgid "tux-plymouth-theme"
+msgstr ""
+
+#: tmainform.image27.hint
+msgid "adapiluv"
+msgstr ""
+
+#: tmainform.image28.hint
+msgid "kodi-animated-logo"
+msgstr ""
+
+#: tmainform.image3.hint
+msgid "mageia"
+msgstr ""
+
+#: tmainform.image4.hint
+msgid "greatest"
+msgstr ""
+
+#: tmainform.image5.hint
+msgid "Mageia-ColdFire"
+msgstr ""
+
+#: tmainform.image6.hint
+msgid "Mageia-Minimal"
+msgstr ""
+
+#: tmainform.image7.hint
+msgid "percentage"
+msgstr ""
+
+#: tmainform.image8.hint
+msgid "pisi-color"
+msgstr ""
+
+#: tmainform.image9.hint
+msgid "macbuntu"
+msgstr ""
+
+#: tmainform.label1.caption
+msgid "Themes list:"
+msgstr "Список тем:"
+
+#: tmainform.panel2.caption
+msgid "Panel2"
+msgstr ""
+
+#: tmainform.speedbutton1.hint
+msgid "Refresh"
+msgstr "Перечитать"
+
+#: tmainform.speedbutton2.hint
+msgctxt "tmainform.speedbutton2.hint"
+msgid "About"
+msgstr ""
+
+#: tmainform.speedbutton3.hint
+msgctxt "tmainform.speedbutton3.hint"
+msgid "View"
+msgstr "Просмотр"
+
+#: tmainform.speedbutton4.hint
+#, fuzzy
+#| msgid "View"
+msgctxt "tmainform.speedbutton4.hint"
+msgid "Install"
+msgstr "Просмотр"
+
+#: tmyaboutform.button1.caption
+msgid "Ok"
+msgstr ""
+
+#: tmyaboutform.caption
+msgctxt "tmyaboutform.caption"
+msgid "About"
+msgstr "О программе"
+
+#: tmyaboutform.label1.caption
+msgctxt "tmyaboutform.label1.caption"
+msgid "Plymouth Changer"
+msgstr ""
+
+#: tmyaboutform.label2.caption
+msgid ""
+"Plymouth change program\n"
+"\n"
+"License: GNU GPL\n"
+"Compilation: Lazarus 1.8.4\n"
+"Author: alex_q_2000 (C) 2020\n"
+"\n"
+"Russian Linux Forum:\n"
+"https://linuxforum.ru\n"
+msgstr ""
+"Программа изменения Plymouth\n"
+"\n"
+"Лицензия: GNU GPL\n"
+"Компиляция: Lazarus 1.8.4\n"
+"Автор: alex_q_2000 (C) 2020\n"
+"\n"
+"Russian Linux Forum:\n"
+"https://linuxforum.ru\n"
+
+#: unit1.schangeplymouthquery
+msgid "Do you really want to change the Plymouth theme?"
+msgstr "Вы действительно хотите сменить тему Plymouth?"
+
+#: unit1.sviewplymouththeme
+msgid "After displaying the theme, move the mouse to emulate the display progress. Viewing time is 10 seconds."
+msgstr "После отображения темы для эмуляции прогресса двигайте мышь. Время просмотра 10 секунд."
+
