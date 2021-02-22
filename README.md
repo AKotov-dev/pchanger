@@ -1,6 +1,6 @@
 **pchanger** - Plymouth changer
 
-Dependencies: sakura gettext binutils plymouth plymouth-x11 plymouth-plugin-two-step
+Dependencies: `sakura gettext binutils plymouth plymouth-x11 plymouth-plugin-two-step`
 
 The program is designed to quickly change the system boot screen (Plymouth).
 
