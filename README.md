@@ -1,4 +1,4 @@
-PChanger - plymouth changer for Mageia Linux
+PChanger - plymouth changer
 ---
 Dependencies: `sakura binutils plymouth plymouth-x11 plymouth-plugin-two-step`
 
