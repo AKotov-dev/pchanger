@@ -1,6 +1,6 @@
 PChanger - Plymouth changer for Mageia Linux
 ---
-Dependencies: `sakura gettext binutils plymouth plymouth-x11 plymouth-plugin-two-step`
+Dependencies: `sakura binutils plymouth plymouth-x11 plymouth-plugin-two-step`
 
 The program is designed to quickly change the system boot screen (Plymouth).
 
