@@ -6,8 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs,
-  EditBtn, StdCtrls, XMLPropStorage, ExtCtrls, Buttons, Process,
-  LCLTranslator, DefaultTranslator, PropertyStorage;
+  StdCtrls, XMLPropStorage, ExtCtrls, Buttons, Process,
+  DefaultTranslator, PropertyStorage;
 
 type
 
@@ -75,7 +75,8 @@ type
 //Ресурсы перевода
 resourcestring
   SChangePlymouthQuery = 'Do you really want to change the Plymouth theme?';
-  SViewPlymouthTheme = 'After displaying the theme, move the mouse to emulate the display progress. Viewing time is 10 seconds.';
+  SViewPlymouthTheme =
+    'After displaying the theme, move the mouse to emulate the display progress. Viewing time is 10 seconds.';
 
 var
   MainForm: TMainForm;
@@ -95,19 +96,12 @@ begin
   Screen.Cursor := crHourGlass;
   ExProcess := TProcess.Create(nil);
   try
-    ExProcess.Executable := terminal;  //sh или sakura
+    ExProcess.Executable := terminal;  //sh или xterm
     if terminal <> 'sh' then
     begin
-      ExProcess.Parameters.Add('--font');
-      ExProcess.Parameters.Add('10');
-      ExProcess.Parameters.Add('--columns');
-      ExProcess.Parameters.Add('120');
-      ExProcess.Parameters.Add('--rows');
-      ExProcess.Parameters.Add('40');
-      ExProcess.Parameters.Add('--title');
-      ExProcess.Parameters.Add('Command execution. Please wait...');
-      ExProcess.Parameters.Add('--config-file=sakura-pchanger.conf');
-      ExProcess.Parameters.Add('-x');
+      ExProcess.Parameters.Add('-g');
+      ExProcess.Parameters.Add('110x47');
+      ExProcess.Parameters.Add('-e');
       //   ExProcess.Options := ExProcess.Options + [poWaitOnExit];
       ExProcess.Parameters.Add(command);
       ExProcess.Execute;
@@ -161,7 +155,7 @@ begin
   if MessageDlg(SChangePlymouthQuery, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
 
     StartProcess('plymouth-set-default-theme -R ' +
-      ListBox1.Items[ListBox1.ItemIndex], 'sakura');
+      ListBox1.Items[ListBox1.ItemIndex], 'xterm');
 end;
 
 procedure TMainForm.SpeedButton1Click(Sender: TObject);
@@ -187,7 +181,7 @@ begin
   StartProcess('sh -c "echo ' + '''' + 'Preparing Plymouth theme...' +
     '''' + '; plymouth-set-default-theme ' + ListBox1.Items[ListBox1.ItemIndex] +
     '; plymouthd; plymouth --show-splash; for ((I=0; I<10; I++)); do plymouth --update=test$I; '
-    + 'sleep 1; done; plymouth quit"', 'sakura');
+    + 'sleep 1; done; plymouth quit"', 'xterm');
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
@@ -199,10 +193,6 @@ begin
 
   if not DirectoryExists(WorkDir) then
     StartProcess('mkdir -p ' + WorkDir, 'sh');
-
-  //Создаём конфиг sakura, убираем запрос на сохранение его настроек после первого запуска
-  if not FileExists('~/.config/sakura/sakura-pchanger.conf') then
-    StartProcess('cp -Rf /usr/share/pchanger/sakura ~/.config/', 'sh');
 
   XMLPropStorage1.FileName := WorkDir + '/settings.xml';
 end;

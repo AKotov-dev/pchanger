@@ -1,6 +1,6 @@
 PChanger - plymouth changer
 ---
-Dependencies: `sakura binutils plymouth plymouth-x11 plymouth-plugin-two-step`
+Dependencies: `xterm gtk2 binutils plymouth plymouth-x11 plymouth-plugin-two-step`
 
 The program is designed to quickly change the system boot screen (Plymouth).
 
@@ -10,6 +10,6 @@ The left side of the picture window shows the themes embedded in the package. On
 + brand-themes-pack: https://cloud.mail.ru/public/2R6b/KRqVM6yJr  
 + android-themes-pack: https://cloud.mail.ru/public/Y3fR/GA9s71Qyg  
 
-Developed and tested only on Mageia Linux-7/8.
+Developed and tested only on Mageia Linux-8/9.
 
 ![](https://github.com/AKotov-dev/pchanger/blob/main/ScreenShot.png)

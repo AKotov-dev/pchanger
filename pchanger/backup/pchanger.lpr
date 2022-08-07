@@ -7,12 +7,12 @@ uses
   cthreads,
   {$ENDIF}{$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Unit1, about, LCLTranslator, DefaultTranslator;
+  Forms, Unit1, about;
 
 {$R *.res}
 
 begin
-  Application.Title:='Plymouth Changer v1.0';
+  Application.Title:='Plymouth Changer v1.4';
   RequireDerivedFormResource:=True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

@@ -2,10 +2,10 @@
 name=pchanger
 
 [VERSION]
-version=1.3
+version=1.4
 
 [RELEASE]
-release=3.mrx7
+release=0.mrx9
 
 [GROUP]
 group=Applications/System
@@ -19,19 +19,19 @@ group=Applications/System
 maintainer=Alex Kotov
 
 [VENDOR]
-vendor=alex_q_2000 (C) 2020
+vendor=alex_q_2000 (C) 2022
 
 [SUMMARY]
 summary=Plymouth theme changer
 
 [URLCOPY]
-urlcopy=https://cloud.mail.ru/public/5kma/573FjdpNE
+urlcopy=https://github.com/AKotov-dev/pchanger
 
 [LICENSE]
 license=GPLv3+
 
 [DEPS]
-deps=sakura gettext binutils plymouth plymouth-x11 plymouth-plugin-two-step
+deps=xterm binutils plymouth plymouth-x11 plymouth-plugin-two-step gtk2
 
 [META]
 meta=0
@@ -41,6 +41,9 @@ noarch=0
 
 [SIGN]
 sign=0
+
+[DEB]
+deb=0
 
 [FILES]
 0=/usr/bin/pchanger
@@ -78,32 +81,20 @@ sign=0
 32=/usr/share/plymouth/themes/kodi-animated-logo/
 33=/usr/share/plymouth/themes/tux-plymouth-theme/
 
-[AFTERINSTALL]
-0=#ldconfig
-1=#update-desktop-database -q /usr/share/applications
-2=#update-mime-database /usr/share/mime
-3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
-
-[AFTERREMOVE]
-0=#ldconfig
-1=#update-desktop-database -q /usr/share/applications
-2=#update-mime-database /usr/share/mime
-3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
-
 [URL32]
-url32=https://cloud.mail.ru/public/5kma/573FjdpNE
+url32=https://github.com/AKotov-dev/pchanger
 
 [URL64]
-url64=https://cloud.mail.ru/public/5kma/573FjdpNE
+url64=
 
 [PROGRAMNAME]
-programname=pchanger
+programname=PChanger
 
 [DEVTOOL]
 devtool=Lazarus
 
 [TOOLVERSION]
-toolversion=1.8.4
+toolversion=2.20
 
 [INFO]
 0=The program is designed to easily change the Plymouth theme in MgaRemix Linux
@@ -113,3 +104,10 @@ toolversion=1.8.4
 4=Theme demonstration:
 5=---
 6=plymouthd; plymouth --show-splash ; for ((I=0; I<10; I++)); do plymouth --update=test$I ; sleep 1; done; plymouth quit
+7=
+8=
+9=v1.4
+10=+ recompilation in Lazarus-2.2.0
+11=+ rpm: added gtk2 dependency (for GNOME)
+12=+ replacing sakura terminal with xterm (bug: https://github.com/dabisu/sakura/issues/16)
+13=+ reassembly of rpm packages (including additional themes-130) with a new prefix *.mrx9

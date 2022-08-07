@@ -1,11 +1,11 @@
 object MyAboutForm: TMyAboutForm
   Left = 485
-  Height = 232
+  Height = 225
   Top = 224
-  Width = 372
+  Width = 368
   Caption = 'About'
-  ClientHeight = 232
-  ClientWidth = 372
+  ClientHeight = 225
+  ClientWidth = 368
   DesignTimePPI = 92
   OnCreate = FormCreate
   Position = poMainFormCenter
@@ -85,20 +85,20 @@ object MyAboutForm: TMyAboutForm
   object Bevel1: TBevel
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 0
+    Left = 3
     Height = 16
-    Top = 181
-    Width = 364
+    Top = 179
+    Width = 363
     Anchors = [akLeft, akRight]
-    BorderSpacing.Right = 8
+    BorderSpacing.Right = 2
     Shape = bsTopLine
   end
   object Button1: TButton
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 144
+    Left = 146
     Height = 25
-    Top = 196
+    Top = 193
     Width = 75
     Anchors = [akBottom]
     BorderSpacing.Right = 165

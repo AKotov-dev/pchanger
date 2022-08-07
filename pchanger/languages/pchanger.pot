@@ -1,15 +1,5 @@
 msgid ""
-msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Project-Id-Version: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: alex_q_2000\n"
-"Language-Team: \n"
-"MIME-Version: 1.0\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
-"Language: ru\n"
+msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: tmainform.caption
 msgctxt "tmainform.caption"
@@ -41,17 +31,14 @@ msgid "wonderland"
 msgstr ""
 
 #: tmainform.image15.hint
-msgctxt "tmainform.image15.hint"
 msgid "MgaRemix"
 msgstr ""
 
 #: tmainform.image16.hint
-msgctxt "tmainform.image16.hint"
 msgid "MgaRemix-Lite"
 msgstr ""
 
 #: tmainform.image17.hint
-msgctxt "tmainform.image17.hint"
 msgid "lilith-glamour"
 msgstr ""
 
@@ -133,7 +120,7 @@ msgstr ""
 
 #: tmainform.label1.caption
 msgid "Themes list:"
-msgstr "Список тем:"
+msgstr ""
 
 #: tmainform.panel2.caption
 msgid "Panel2"
@@ -141,22 +128,20 @@ msgstr ""
 
 #: tmainform.speedbutton1.hint
 msgid "Refresh"
-msgstr "Перечитать"
+msgstr ""
 
 #: tmainform.speedbutton2.hint
 msgctxt "tmainform.speedbutton2.hint"
 msgid "About"
-msgstr "О программе"
+msgstr ""
 
 #: tmainform.speedbutton3.hint
-msgctxt "tmainform.speedbutton3.hint"
 msgid "View"
-msgstr "Просмотр"
+msgstr ""
 
 #: tmainform.speedbutton4.hint
-msgctxt "tmainform.speedbutton4.hint"
 msgid "Install"
-msgstr "Установка"
+msgstr ""
 
 #: tmyaboutform.button1.caption
 msgid "Ok"
@@ -165,7 +150,7 @@ msgstr ""
 #: tmyaboutform.caption
 msgctxt "tmyaboutform.caption"
 msgid "About"
-msgstr "О программе"
+msgstr ""
 
 #: tmyaboutform.label1.caption
 msgctxt "tmyaboutform.label1.caption"
@@ -183,19 +168,12 @@ msgid ""
 "Russian Linux Forum:\n"
 "https://linuxforum.ru"
 msgstr ""
-"Программа изменения Plymouth\n"
-"\n"
-"Лицензия: GNU GPL\n"
-"Компиляция: Lazarus 2.2.0\n"
-"Автор: alex_q_2000 (C) 2020\n"
-"\n"
-"Russian Linux Forum:\n"
-"https://linuxforum.ru"
 
 #: unit1.schangeplymouthquery
 msgid "Do you really want to change the Plymouth theme?"
-msgstr "Вы действительно хотите сменить тему Plymouth?"
+msgstr ""
 
 #: unit1.sviewplymouththeme
 msgid "After displaying the theme, move the mouse to emulate the display progress. Viewing time is 10 seconds."
-msgstr "После отображения темы для эмуляции прогресса двигайте мышь. Время просмотра 10 секунд."
+msgstr ""
+

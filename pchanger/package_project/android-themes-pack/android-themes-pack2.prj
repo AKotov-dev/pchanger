@@ -2,10 +2,10 @@
 name=android-themes-pack2
 
 [VERSION]
-version=0.1
+version=0.2
 
 [RELEASE]
-release=0.mrx7
+release=0.mrx9
 
 [GROUP]
 group=Development/Libraries
@@ -44,6 +44,9 @@ noarch=1
 [SIGN]
 sign=0
 
+[DEB]
+deb=0
+
 [FILES]
 0=/usr/share/plymouth/themes/cyanide/
 1=/usr/share/plymouth/themes/cybernetic/
@@ -67,18 +70,6 @@ sign=0
 19=/usr/share/plymouth/themes/hexagon_red/
 20=/usr/share/doc/android-themes-pack2/
 
-[AFTERINSTALL]
-0=#ldconfig
-1=#update-desktop-database -q /usr/share/applications
-2=#update-mime-database /usr/share/mime
-3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
-
-[AFTERREMOVE]
-0=#ldconfig
-1=#update-desktop-database -q /usr/share/applications
-2=#update-mime-database /usr/share/mime
-3=#gtk-update-icon-cache -q -f /usr/share/icons/hicolor
-
 [URL32]
 url32=https://github.com/adi1090x/plymouth-themes
 
@@ -101,3 +92,6 @@ toolversion=none
 3=URL2: https://forum.xda-developers.com/android/themes/alienware-t3721978
 4=
 5=Demo album: https://www.buymeacoffee.com/p/44845
+6=
+7=v0.2
+8=+ reassembly for Mageia-9
