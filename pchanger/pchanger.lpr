@@ -5,7 +5,7 @@ program pchanger;
 uses
  {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
-     {$ENDIF}   {$ENDIF}
+      {$ENDIF}    {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms,
   Unit1,
