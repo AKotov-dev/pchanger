@@ -1,6 +1,11 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: tmainform.aboutbtn.hint
+msgctxt "tmainform.aboutbtn.hint"
+msgid "About"
+msgstr ""
+
 #: tmainform.caption
 msgctxt "tmainform.caption"
 msgid "Plymouth Changer"
@@ -118,6 +123,11 @@ msgstr ""
 msgid "macbuntu"
 msgstr ""
 
+#: tmainform.installbtn.hint
+msgctxt "tmainform.installbtn.hint"
+msgid "Install"
+msgstr ""
+
 #: tmainform.label1.caption
 msgid "Themes list:"
 msgstr ""
@@ -126,21 +136,14 @@ msgstr ""
 msgid "Panel2"
 msgstr ""
 
-#: tmainform.speedbutton1.hint
+#: tmainform.refreshbtn.hint
+msgctxt "tmainform.refreshbtn.hint"
 msgid "Refresh"
 msgstr ""
 
-#: tmainform.speedbutton2.hint
-msgctxt "tmainform.speedbutton2.hint"
-msgid "About"
-msgstr ""
-
-#: tmainform.speedbutton3.hint
+#: tmainform.viewbtn.hint
+msgctxt "tmainform.viewbtn.hint"
 msgid "View"
-msgstr ""
-
-#: tmainform.speedbutton4.hint
-msgid "Install"
 msgstr ""
 
 #: tmyaboutform.button1.caption
@@ -160,13 +163,12 @@ msgstr ""
 #: tmyaboutform.label2.caption
 msgid ""
 "Plymouth change program\n"
-"\n"
-"License: GNU GPL\n"
-"Compilation: Lazarus 2.2.0\n"
+"  \n"
+"License: GPLv3\n"
+"Compilation: Lazarus 2.2.4\n"
 "Author: alex_q_2000 (C) 2020\n"
-"\n"
-"Russian Linux Forum:\n"
-"https://linuxforum.ru"
+"  \n"
+"Russian Linux Forum: https://linuxforum.ru"
 msgstr ""
 
 #: unit1.schangeplymouthquery

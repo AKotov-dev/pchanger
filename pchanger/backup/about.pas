@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, XMLPropStorage, LCLTranslator, DefaultTranslator;
+  ExtCtrls, LCLTranslator, DefaultTranslator;
 
 type
 
@@ -18,9 +18,8 @@ type
     Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
-    AboutXMLPropStorage1: TXMLPropStorage;
     procedure Button1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -32,8 +31,6 @@ var
 
 implementation
 
-uses unit1;
-
 {$R *.lfm}
 
 { TMyAboutForm }
@@ -43,9 +40,10 @@ begin
   MyAboutForm.Close;
 end;
 
-procedure TMyAboutForm.FormCreate(Sender: TObject);
+procedure TMyAboutForm.FormShow(Sender: TObject);
 begin
-  AboutXMLPropStorage1.FileName := MainForm.XMLPropStorage1.FileName;
+  MyAboutForm.Width := Label2.Left + Label2.Width + 40;
+  MyAboutForm.Height := Button1.Top + Button1.Height + 10;
 end;
 
 end.

@@ -5,7 +5,7 @@ program pchanger;
 uses
  {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
-   {$ENDIF} {$ENDIF}
+     {$ENDIF}   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms,
   Unit1,
@@ -14,7 +14,8 @@ uses
 {$R *.res}
 
 begin
-  Application.Title := 'Plymouth Changer v1.4';
+  Application.Scaled := True;
+  Application.Title := 'Plymouth Changer v1.5';
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);

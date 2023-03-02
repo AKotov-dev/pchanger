@@ -1,42 +1,33 @@
 object MainForm: TMainForm
-  Left = 313
-  Height = 700
-  Top = 121
-  Width = 963
+  Left = 693
+  Height = 736
+  Top = 42
+  Width = 1000
   ActiveControl = ListBox1
   Caption = 'Plymouth Changer'
-  ClientHeight = 700
-  ClientWidth = 963
+  ClientHeight = 736
+  ClientWidth = 1000
   OnCreate = FormCreate
   OnShow = FormShow
-  Position = poDesktopCenter
-  SessionProperties = 'Height;Panel2.Width;Width'
-  LCLVersion = '2.2.0.4'
-  object Splitter1: TSplitter
-    Left = 739
-    Height = 700
-    Top = 0
-    Width = 4
-    Align = alRight
-    ResizeAnchor = akRight
-  end
+  SessionProperties = 'Height;Width;Top;Left'
+  LCLVersion = '2.2.4.0'
   object Panel2: TPanel
-    Left = 743
-    Height = 700
+    Left = 731
+    Height = 736
     Top = 0
-    Width = 220
-    Align = alRight
+    Width = 269
+    Align = alClient
     Caption = 'Panel2'
-    ClientHeight = 700
-    ClientWidth = 220
-    TabOrder = 1
+    ClientHeight = 736
+    ClientWidth = 269
+    TabOrder = 0
     object ListBox1: TListBox
       Left = 1
-      Height = 663
-      Top = 36
-      Width = 218
+      Height = 694
+      Top = 41
+      Width = 267
       Align = alClient
-      BorderSpacing.Top = 35
+      BorderSpacing.Top = 40
       ItemHeight = 0
       OnDblClick = ListBox1DblClick
       ScrollWidth = 216
@@ -47,16 +38,17 @@ object MainForm: TMainForm
       AnchorSideBottom.Side = asrBottom
       Left = 1
       Height = 17
-      Top = 6
+      Top = 21
       Width = 72
       Caption = 'Themes list:'
+      ParentColor = False
     end
-    object SpeedButton2: TSpeedButton
-      Left = 190
-      Height = 27
+    object AboutBtn: TSpeedButton
+      Left = 232
+      Height = 32
       Hint = 'About'
       Top = 6
-      Width = 27
+      Width = 32
       Anchors = [akTop, akRight]
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
@@ -94,16 +86,16 @@ object MainForm: TMainForm
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = SpeedButton2Click
+      OnClick = AboutBtnClick
       ShowHint = True
       ParentShowHint = False
     end
-    object SpeedButton1: TSpeedButton
-      Left = 163
-      Height = 27
+    object RefreshBtn: TSpeedButton
+      Left = 202
+      Height = 32
       Hint = 'Refresh'
       Top = 6
-      Width = 27
+      Width = 32
       Anchors = [akTop, akRight]
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
@@ -141,16 +133,16 @@ object MainForm: TMainForm
         00000000000000000000000000000000001500000080000000B4000000350000
         0009000000000000000000000000000000000000000000000000
       }
-      OnClick = SpeedButton1Click
+      OnClick = RefreshBtnClick
       ShowHint = True
       ParentShowHint = False
     end
-    object SpeedButton3: TSpeedButton
-      Left = 109
-      Height = 27
+    object ViewBtn: TSpeedButton
+      Left = 142
+      Height = 32
       Hint = 'View'
       Top = 6
-      Width = 27
+      Width = 32
       Anchors = [akTop, akRight]
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
@@ -188,16 +180,16 @@ object MainForm: TMainForm
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = SpeedButton3Click
+      OnClick = ViewBtnClick
       ShowHint = True
       ParentShowHint = False
     end
-    object SpeedButton4: TSpeedButton
-      Left = 136
-      Height = 27
+    object InstallBtn: TSpeedButton
+      Left = 172
+      Height = 32
       Hint = 'Install'
       Top = 6
-      Width = 27
+      Width = 32
       Anchors = [akTop, akRight]
       Glyph.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
@@ -242,16 +234,16 @@ object MainForm: TMainForm
   end
   object ScrollBox1: TScrollBox
     Left = 0
-    Height = 700
+    Height = 736
     Top = 0
-    Width = 739
-    HorzScrollBar.Page = 715
-    VertScrollBar.Page = 700
-    Align = alClient
+    Width = 731
+    HorzScrollBar.Page = 706
+    VertScrollBar.Page = 736
+    Align = alLeft
     BorderStyle = bsNone
-    ClientHeight = 700
-    ClientWidth = 722
-    TabOrder = 2
+    ClientHeight = 736
+    ClientWidth = 714
+    TabOrder = 1
     object Image14: TImage
       Cursor = crHandPoint
       Left = 8
@@ -963,13 +955,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image13: TImage
+      AnchorSideLeft.Control = Image24
+      AnchorSideLeft.Side = asrBottom
       Cursor = crHandPoint
-      Left = 369
+      Left = 362
       Height = 93
       Hint = 'dandelion'
       Top = 8
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -1224,13 +1219,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image8: TImage
+      AnchorSideLeft.Control = Image13
+      AnchorSideLeft.Side = asrBottom
       Cursor = crHandPoint
-      Left = 548
+      Left = 539
       Height = 93
       Hint = 'pisi-color'
       Top = 8
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -1285,13 +1283,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image3: TImage
+      AnchorSideLeft.Control = Image14
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image14
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 189
+      Left = 185
       Height = 125
       Hint = 'mageia'
-      Top = 112
+      Top = 111
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -1534,13 +1538,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image6: TImage
+      AnchorSideTop.Control = Image14
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
       Left = 8
       Height = 125
       Hint = 'Mageia-Minimal'
-      Top = 112
+      Top = 111
       Width = 167
       AutoSize = True
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -1736,13 +1743,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image7: TImage
+      AnchorSideLeft.Control = Image24
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image14
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 369
+      Left = 362
       Height = 125
       Hint = 'percentage'
-      Top = 112
+      Top = 111
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -1841,13 +1854,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image12: TImage
+      AnchorSideLeft.Control = Image14
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image6
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 189
+      Left = 185
       Height = 123
       Hint = 'mud-world-blue'
-      Top = 249
+      Top = 246
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -2402,13 +2421,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image11: TImage
+      AnchorSideTop.Control = Image6
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
       Left = 8
       Height = 124
       Hint = 'mud-world-black'
-      Top = 249
+      Top = 246
       Width = 167
       AutoSize = True
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -3092,13 +3114,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image10: TImage
+      AnchorSideLeft.Control = Image13
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image14
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 548
+      Left = 539
       Height = 124
       Hint = 'mud-waiting'
-      Top = 112
+      Top = 111
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -3506,13 +3534,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image2: TImage
+      AnchorSideTop.Control = Image11
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
       Left = 8
       Height = 104
       Hint = 'breeze-neon'
-      Top = 384
+      Top = 380
       Width = 167
       AutoSize = True
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -3555,13 +3586,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image5: TImage
+      AnchorSideTop.Control = Image2
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
       Left = 8
       Height = 104
       Hint = 'Mageia-ColdFire'
-      Top = 499
+      Top = 494
       Width = 167
       AutoSize = True
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -4368,13 +4402,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image1: TImage
+      AnchorSideLeft.Control = Image14
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image11
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 189
+      Left = 185
       Height = 100
       Hint = 'apple-mac-plymouth'
-      Top = 384
+      Top = 380
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -4419,13 +4459,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image15: TImage
+      AnchorSideLeft.Control = Image24
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image6
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 369
+      Left = 362
       Height = 98
       Hint = 'MgaRemix'
-      Top = 249
+      Top = 246
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -4966,13 +5012,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image9: TImage
+      AnchorSideLeft.Control = Image24
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image11
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 369
+      Left = 362
       Height = 94
       Hint = 'macbuntu'
-      Top = 384
+      Top = 380
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -5352,13 +5404,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image4: TImage
+      AnchorSideLeft.Control = Image13
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image2
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 548
+      Left = 539
       Height = 78
       Hint = 'greatest'
-      Top = 499
+      Top = 494
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -5482,13 +5540,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image16: TImage
+      AnchorSideLeft.Control = Image13
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image6
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 548
+      Left = 539
       Height = 98
       Hint = 'MgaRemix-Lite'
-      Top = 249
+      Top = 246
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -5826,13 +5890,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image17: TImage
+      AnchorSideLeft.Control = Image14
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image2
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 189
+      Left = 185
       Height = 96
       Hint = 'lilith-glamour'
-      Top = 499
+      Top = 494
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -6136,13 +6206,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image18: TImage
+      AnchorSideTop.Control = Image5
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
       Left = 8
       Height = 120
       Hint = 'lighthouseplymouth'
-      Top = 616
+      Top = 608
       Width = 167
       AutoSize = True
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -6794,13 +6867,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image20: TImage
+      AnchorSideLeft.Control = Image24
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image2
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 369
+      Left = 362
       Height = 93
       Hint = 'Bass-SoCool-Slick-Line'
-      Top = 499
+      Top = 494
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -6862,13 +6941,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image21: TImage
+      AnchorSideLeft.Control = Image13
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image11
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 548
+      Left = 539
       Height = 94
       Hint = 'kameleon'
-      Top = 384
+      Top = 380
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -6893,13 +6978,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image22: TImage
+      AnchorSideLeft.Control = Image24
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image5
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 369
+      Left = 362
       Height = 120
       Hint = 'marylin'
-      Top = 616
+      Top = 608
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -7235,13 +7326,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image23: TImage
+      AnchorSideLeft.Control = Image13
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image18
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 548
+      Left = 539
       Height = 172
       Hint = 'mugre-logo'
-      Top = 748
+      Top = 738
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -8155,13 +8252,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image24: TImage
+      AnchorSideLeft.Control = Image14
+      AnchorSideLeft.Side = asrBottom
       Cursor = crHandPoint
-      Left = 189
+      Left = 185
       Height = 93
       Hint = 'pokemon'
       Top = 8
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -8965,13 +9065,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image25: TImage
+      AnchorSideLeft.Control = Image13
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image5
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 548
+      Left = 539
       Height = 120
       Hint = 'lite_spinner'
-      Top = 616
+      Top = 608
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -9262,13 +9368,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image19: TImage
+      AnchorSideLeft.Control = Image14
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image5
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 189
+      Left = 185
       Height = 120
       Hint = 'PlymouthTheme-Cat'
-      Top = 616
+      Top = 608
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -9366,13 +9478,16 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image26: TImage
+      AnchorSideTop.Control = Image18
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
       Left = 8
       Height = 120
       Hint = 'tux-plymouth-theme'
-      Top = 748
+      Top = 738
       Width = 167
       AutoSize = True
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -9555,13 +9670,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image27: TImage
+      AnchorSideLeft.Control = Image14
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image18
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 189
+      Left = 185
       Height = 120
       Hint = 'adapiluv'
-      Top = 748
+      Top = 738
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False
@@ -9844,13 +9965,19 @@ object MainForm: TMainForm
       ShowHint = True
     end
     object Image28: TImage
+      AnchorSideLeft.Control = Image24
+      AnchorSideLeft.Side = asrBottom
+      AnchorSideTop.Control = Image18
+      AnchorSideTop.Side = asrBottom
       Cursor = crHandPoint
-      Left = 369
+      Left = 362
       Height = 120
       Hint = 'kodi-animated-logo'
-      Top = 748
+      Top = 738
       Width = 167
       AutoSize = True
+      BorderSpacing.Left = 10
+      BorderSpacing.Top = 10
       OnClick = Image14Click
       OnDblClick = ListBox1DblClick
       ParentShowHint = False

@@ -2,7 +2,7 @@
 name=pchanger
 
 [VERSION]
-version=1.4
+version=1.5
 
 [RELEASE]
 release=0.mrx9
@@ -28,7 +28,7 @@ summary=Plymouth theme changer
 urlcopy=https://github.com/AKotov-dev/pchanger
 
 [LICENSE]
-license=GPLv3+
+license=GPLv3
 
 [DEPS]
 deps=xterm binutils plymouth plymouth-x11 plymouth-plugin-two-step gtk2
@@ -94,7 +94,7 @@ programname=PChanger
 devtool=Lazarus
 
 [TOOLVERSION]
-toolversion=2.20
+toolversion=2.2.4
 
 [INFO]
 0=The program is designed to easily change the Plymouth theme in MgaRemix Linux
@@ -105,9 +105,14 @@ toolversion=2.20
 5=---
 6=plymouthd; plymouth --show-splash ; for ((I=0; I<10; I++)); do plymouth --update=test$I ; sleep 1; done; plymouth quit
 7=
-8=
-9=v1.4
-10=+ recompilation in Lazarus-2.2.0
-11=+ rpm: added gtk2 dependency (for GNOME)
-12=+ replacing sakura terminal with xterm (bug: https://github.com/dabisu/sakura/issues/16)
-13=+ reassembly of rpm packages (including additional themes-130) with a new prefix *.mrx9
+8=v1.5
+9=+ Recompilation in Lazarus-2.2.4
+10=+ Improved interface (Plasma/Hi-DPI)
+11=+ Improved output of theme application progress
+12=+ Auto-selection at startup with beer privileges: pkexec/kdesu
+13=
+14=v1.4
+15=+ recompilation in Lazarus-2.2.0
+16=+ rpm: added gtk2 dependency (for GNOME)
+17=+ replacing sakura terminal with xterm (bug: https://github.com/dabisu/sakura/issues/16)
+18=+ reassembly of rpm packages (including additional themes-130) with a new prefix *.mrx9

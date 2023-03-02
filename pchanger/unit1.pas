@@ -46,20 +46,19 @@ type
     ListBox1: TListBox;
     Panel2: TPanel;
     ScrollBox1: TScrollBox;
-    SpeedButton1: TSpeedButton;
-    SpeedButton2: TSpeedButton;
-    SpeedButton3: TSpeedButton;
-    SpeedButton4: TSpeedButton;
-    Splitter1: TSplitter;
+    RefreshBtn: TSpeedButton;
+    AboutBtn: TSpeedButton;
+    ViewBtn: TSpeedButton;
+    InstallBtn: TSpeedButton;
     Timer1: TTimer;
     XMLPropStorage1: TXMLPropStorage;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image14Click(Sender: TObject);
     procedure ListBox1DblClick(Sender: TObject);
-    procedure SpeedButton1Click(Sender: TObject);
-    procedure SpeedButton2Click(Sender: TObject);
-    procedure SpeedButton3Click(Sender: TObject);
+    procedure RefreshBtnClick(Sender: TObject);
+    procedure AboutBtnClick(Sender: TObject);
+    procedure ViewBtnClick(Sender: TObject);
     procedure StartProcess(command, terminal: string);
     procedure Timer1Timer(Sender: TObject);
     procedure XMLPropStorage1RestoreProperties(Sender: TObject);
@@ -89,6 +88,8 @@ uses about;
 
 { TMainForm }
 
+
+//Запуск просмотра/установки Plymouth
 procedure TMainForm.StartProcess(command, terminal: string);
 var
   ExProcess: TProcess;
@@ -100,9 +101,17 @@ begin
     if terminal <> 'sh' then
     begin
       ExProcess.Parameters.Add('-g');
-      ExProcess.Parameters.Add('110x47');
+      ExProcess.Parameters.Add('110x47+10+10');
+
+      ExProcess.Parameters.Add('-xrm');
+      ExProcess.Parameters.Add('XTerm*allowTitleOps:false');
+      //разрешаем менять заголовок
+      ExProcess.Parameters.Add('-T');
+      ExProcess.Parameters.Add('Command execute...'); //заголовок
+
       ExProcess.Parameters.Add('-e');
-      //   ExProcess.Options := ExProcess.Options + [poWaitOnExit];
+
+      // ExProcess.Options := ExProcess.Options + [poWaitOnExit];
       ExProcess.Parameters.Add(command);
       ExProcess.Execute;
     end
@@ -113,7 +122,11 @@ begin
       ExProcess.Options := ExProcess.Options + [poWaitOnExit, poUsePipes, poNoConsole];
       ExProcess.Execute;
 
+      //Обнвление списка тем
       ListBox1.Items.LoadFromStream(ExProcess.Output);
+      ListBox1.Update;
+      if ListBox1.Count > 0 then
+        ListBox1.ItemIndex := 0;
     end;
 
   finally
@@ -122,19 +135,22 @@ begin
   end;
 end;
 
+//Для открытия формы - перечитываем список тем с задержкой
 procedure TMainForm.Timer1Timer(Sender: TObject);
 begin
   Screen.Cursor := crHourGlass;
-  SpeedButton1.Click;
+  RefreshBtn.Click;
   Timer1.Enabled := False;
   Screen.Cursor := crDefault;
 end;
 
+//Предупреждение о просмотре показывается 1 раз
 procedure TMainForm.XMLPropStorage1RestoreProperties(Sender: TObject);
 begin
   a := XMLPropStorage1.ReadBoolean('ShowPlymouthMsg', True);
 end;
 
+//Предупреждение о просмотре показывается 1 раз
 procedure TMainForm.XMLPropStorage1SaveProperties(Sender: TObject);
 begin
   XMLPropStorage1.WriteBoolean('ShowPlymouthMsg', a);
@@ -142,35 +158,42 @@ end;
 
 procedure TMainForm.FormShow(Sender: TObject);
 begin
+  XMLPropStorage1.Restore;
   MainForm.Caption := Application.Title;
+  ScrollBox1.Width := Image8.Left + Image8.Width + 30;
 end;
 
+//Поиск в списке по клику на картинке
 procedure TMainForm.Image14Click(Sender: TObject);
 begin
   ListBox1.ItemIndex := (ListBox1.Items.IndexOf((Sender as TImage).Hint));
 end;
 
+//Установка темы двойным щелчком в списке
 procedure TMainForm.ListBox1DblClick(Sender: TObject);
 begin
   if MessageDlg(SChangePlymouthQuery, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
 
-    StartProcess('plymouth-set-default-theme -R ' +
+    StartProcess('printf "\033[1;31mThe installation of the \"' +
+      ListBox1.Items[ListBox1.ItemIndex] +
+      '\" theme is underway. Please, wait...\033[0m\n\n"; plymouth-set-default-theme -R '
+      +
       ListBox1.Items[ListBox1.ItemIndex], 'xterm');
 end;
 
-procedure TMainForm.SpeedButton1Click(Sender: TObject);
+//Обновить список тем
+procedure TMainForm.RefreshBtnClick(Sender: TObject);
 begin
   StartProcess('plymouth-set-default-theme -l', 'sh');
-  if ListBox1.Count > 0 then
-    ListBox1.ItemIndex := 0;
 end;
 
-procedure TMainForm.SpeedButton2Click(Sender: TObject);
+procedure TMainForm.AboutBtnClick(Sender: TObject);
 begin
   MyAboutForm.Show;
 end;
 
-procedure TMainForm.SpeedButton3Click(Sender: TObject);
+//Просмотр темы в реальном времени
+procedure TMainForm.ViewBtnClick(Sender: TObject);
 begin
   if a then
   begin
