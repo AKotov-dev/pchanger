@@ -1,7 +1,7 @@
 object MainForm: TMainForm
-  Left = 693
+  Left = 288
   Height = 736
-  Top = 42
+  Top = 88
   Width = 1000
   ActiveControl = ListBox1
   Caption = 'Plymouth Changer'

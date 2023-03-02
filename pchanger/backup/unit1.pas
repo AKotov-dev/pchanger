@@ -95,6 +95,7 @@ var
   ExProcess: TProcess;
 begin
   Screen.Cursor := crHourGlass;
+  Application.ProcessMessages;
   ExProcess := TProcess.Create(nil);
   try
     ExProcess.Executable := terminal;  //sh или xterm
@@ -119,14 +120,17 @@ begin
     begin
       ExProcess.Parameters.Add('-c');
       ExProcess.Parameters.Add(command);
-      ExProcess.Options := ExProcess.Options + [poWaitOnExit, poUsePipes, poNoConsole];
+      ExProcess.Options := ExProcess.Options + [poWaitOnExit, poUsePipes];
       ExProcess.Execute;
 
-      //Обнвление списка тем
-      ListBox1.Items.LoadFromStream(ExProcess.Output);
-      ListBox1.Update;
-      if ListBox1.Count > 0 then
-        ListBox1.ItemIndex := 0;
+      if Pos('--show-splash', command) = 0 then
+      begin
+        //Обнвление списка тем
+        ListBox1.Items.LoadFromStream(ExProcess.Output);
+        ListBox1.Update;
+        if ListBox1.Count > 0 then
+          ListBox1.ItemIndex := 0;
+      end;
     end;
 
   finally
@@ -160,7 +164,7 @@ procedure TMainForm.FormShow(Sender: TObject);
 begin
   XMLPropStorage1.Restore;
   MainForm.Caption := Application.Title;
-  ScrollBox1.Width:=Image8.Left + Image8.Width + 25;
+  ScrollBox1.Width := Image8.Left + Image8.Width + 30;
 end;
 
 //Поиск в списке по клику на картинке
@@ -201,10 +205,15 @@ begin
     MessageDlg(SViewPlymouthTheme, mtInformation, [mbOK], 0);
   end;
 
-  StartProcess('sh -c "echo ' + '''' + 'Preparing Plymouth theme...' +
+ { StartProcess('sh -c "echo ' + '''' + 'Preparing Plymouth theme...' +
     '''' + '; plymouth-set-default-theme ' + ListBox1.Items[ListBox1.ItemIndex] +
     '; plymouthd; plymouth --show-splash; for ((I=0; I<10; I++)); do plymouth --update=test$I; '
-    + 'sleep 1; done; plymouth quit"', 'xterm');
+    + 'sleep 1; done; plymouth quit"', 'xterm');}
+
+  StartProcess('plymouth-set-default-theme ' + ListBox1.Items[ListBox1.ItemIndex] +
+    '; plymouthd; plymouth --show-splash; for ((I=0; I<10; I++)); do plymouth --update=test$I; '
+    + 'sleep 1; done; plymouth quit', 'sh');
+
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
