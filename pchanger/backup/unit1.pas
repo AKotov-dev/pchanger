@@ -111,15 +111,14 @@ begin
   try
     AProcess.Executable := 'bash';
     AProcess.Parameters.Add('-c');
-    // Формируем строку скрипта для bash
+
     AProcess.Parameters.Add(
-      'CURRENT_THEME=$(plymouth-set-default-theme); ' +
+      'CURRENT_THEME="$(plymouth-set-default-theme)"; ' +
       'plymouth-set-default-theme ' + ThemeName + '; ' +
       'plymouthd --debug; ' + 'plymouth --show-splash; ' +
       'for ((I=0; I<10; I++)); do sudo plymouth --update=test$I; sleep 1; done; ' +
       'plymouth --quit; plymouth-set-default-theme "$CURRENT_THEME"');
 
-    // Настройки для фонового выполнения, чтобы графический интерфейс Lazarus не зависал
     AProcess.Options := [poNoConsole];
     AProcess.Execute;
 

@@ -102,7 +102,7 @@ uses about, InstallThemeTDR;
 
   { TMainForm }
 
-
+//Просмотр темы без установки (X11 Only)
 procedure TMainForm.PreviewPlymouthTheme(ThemeName: string);
 var
   AProcess: TProcess;
