@@ -8,6 +8,6 @@ The left side of the picture window shows the themes embedded in the package. On
 
 [Additional RPM theme packages ported from Android (80+)](https://disk.yandex.ru/d/HO28SMk1LVCKqg)  
   
-**Note:** Theme preview without installation works only in X11.
+**Note:** Theme preview without installation works only in X11 (not Wayland).
   
 ![](https://github.com/AKotov-dev/pchanger/blob/main/ScreenShot.png)
