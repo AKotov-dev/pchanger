@@ -5,8 +5,7 @@ unit about;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls, LCLTranslator, DefaultTranslator;
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
 
 type
 
@@ -31,9 +30,12 @@ var
 
 implementation
 
-{$R *.lfm}
+uses Unit1;
 
-{ TMyAboutForm }
+
+  {$R *.lfm}
+
+  { TMyAboutForm }
 
 procedure TMyAboutForm.Button1Click(Sender: TObject);
 begin
@@ -42,8 +44,14 @@ end;
 
 procedure TMyAboutForm.FormShow(Sender: TObject);
 begin
-  MyAboutForm.Width := Label2.Left + Label2.Width + 40;
-  MyAboutForm.Height := Button1.Top + Button1.Height + 10;
+  Label1.Caption := Application.Title;
+
+  Width := Label2.Left + Label2.Width + 40;
+  Height := Button1.Top + Button1.Height + 10;
+
+  //В центр MainForm
+  Left := MainForm.Left + MainForm.Width div 2 - Width div 2;
+  Top := MainForm.Top + MainForm.Height div 2 - Height div 2;
 end;
 
 end.

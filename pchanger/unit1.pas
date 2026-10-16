@@ -35,107 +35,121 @@ type
     Image26: TImage;
     Image27: TImage;
     Image28: TImage;
+    Image29: TImage;
     Image3: TImage;
+    Image30: TImage;
     Image4: TImage;
     Image5: TImage;
     Image6: TImage;
     Image7: TImage;
     Image8: TImage;
     Image9: TImage;
+    ImageList1: TImageList;
     Label1: TLabel;
     ListBox1: TListBox;
     Panel2: TPanel;
     ScrollBox1: TScrollBox;
     RefreshBtn: TSpeedButton;
     AboutBtn: TSpeedButton;
+    Timer2: TTimer;
     ViewBtn: TSpeedButton;
     InstallBtn: TSpeedButton;
     Timer1: TTimer;
     XMLPropStorage1: TXMLPropStorage;
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Image14Click(Sender: TObject);
     procedure ListBox1DblClick(Sender: TObject);
     procedure RefreshBtnClick(Sender: TObject);
     procedure AboutBtnClick(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
     procedure ViewBtnClick(Sender: TObject);
-    procedure StartProcess(command, terminal: string);
+    procedure StartProcess(command: string);
+    procedure PreviewPlymouthTheme(ThemeName: string);
     procedure Timer1Timer(Sender: TObject);
     procedure XMLPropStorage1RestoreProperties(Sender: TObject);
     procedure XMLPropStorage1SaveProperties(Sender: TObject);
+
+
   private
 
   public
   var
     a: boolean;  //Показ сообщения перед просмотром
+    b: integer; //Счётчик индекса картинок индикатора
 
   end;
 
-//Ресурсы перевода
+  //Ресурсы перевода
 resourcestring
   SChangePlymouthQuery = 'Do you really want to change the Plymouth theme?';
   SViewPlymouthTheme =
     'After displaying the theme, move the mouse to emulate the display progress. Viewing time is 10 seconds.';
+  SInstallThemeWarning =
+    'Dracut is running!' + LineEnding +
+    'The theme installation cannot be interrupted!' + LineEnding +
+    LineEnding + 'Please wait for the process to finish!';
 
 var
   MainForm: TMainForm;
 
 implementation
 
-uses about;
+uses about, InstallThemeTDR;
 
-{$R *.lfm}
+  {$R *.lfm}
 
-{ TMainForm }
+  { TMainForm }
 
 
-//Запуск просмотра/установки Plymouth
-procedure TMainForm.StartProcess(command, terminal: string);
+procedure TMainForm.PreviewPlymouthTheme(ThemeName: string);
+var
+  AProcess: TProcess;
+begin
+  AProcess := TProcess.Create(nil);
+  try
+    AProcess.Executable := 'bash';
+    AProcess.Parameters.Add('-c');
+    // Формируем строку скрипта для bash
+    AProcess.Parameters.Add(
+      'plymouth-set-default-theme ' + ThemeName + '; ' +
+      'plymouthd --debug; ' + 'plymouth --show-splash; ' +
+      'for ((I=0; I<10; I++)); do sudo plymouth --update=test$I; sleep 1; done; ' +
+      'sudo plymouth --quit'
+      );
+    // Настройки для фонового выполнения, чтобы графический интерфейс Lazarus не зависал
+    AProcess.Options := [poNoConsole];
+    AProcess.Execute;
+
+  finally
+    AProcess.Free;
+  end;
+end;
+
+//Запуск команд
+procedure TMainForm.StartProcess(command: string);
 var
   ExProcess: TProcess;
 begin
-  Screen.Cursor := crHourGlass;
   Application.ProcessMessages;
   ExProcess := TProcess.Create(nil);
   try
-    ExProcess.Executable := terminal;  //sh или xterm
-    if terminal <> 'sh' then
-    begin
-      ExProcess.Parameters.Add('-g');
-      ExProcess.Parameters.Add('110x47+10+10');
+    ExProcess.Executable := 'bash';
 
-      ExProcess.Parameters.Add('-xrm');
-      ExProcess.Parameters.Add('XTerm*allowTitleOps:false');
-      //разрешаем менять заголовок
-      ExProcess.Parameters.Add('-T');
-      ExProcess.Parameters.Add('Command execute...'); //заголовок
+    ExProcess.Parameters.Add('-c');
+    ExProcess.Parameters.Add(command);
+    ExProcess.Options := ExProcess.Options + [poWaitOnExit, poUsePipes];
+    ExProcess.Execute;
 
-      ExProcess.Parameters.Add('-e');
-
-      // ExProcess.Options := ExProcess.Options + [poWaitOnExit];
-      ExProcess.Parameters.Add(command);
-      ExProcess.Execute;
-    end
-    else
-    begin
-      ExProcess.Parameters.Add('-c');
-      ExProcess.Parameters.Add(command);
-      ExProcess.Options := ExProcess.Options + [poWaitOnExit, poUsePipes];
-      ExProcess.Execute;
-
-      if Pos('--show-splash', command) = 0 then
-      begin
-        //Обнвление списка тем
-        ListBox1.Items.LoadFromStream(ExProcess.Output);
-        ListBox1.Update;
-        if ListBox1.Count > 0 then
-          ListBox1.ItemIndex := 0;
-      end;
-    end;
+    //Обнвление списка тем
+    ListBox1.Items.LoadFromStream(ExProcess.Output);
+    ListBox1.Update;
+    if ListBox1.Count > 0 then
+      ListBox1.ItemIndex := 0;
 
   finally
     ExProcess.Free;
-    Screen.Cursor := crDefault;
   end;
 end;
 
@@ -176,24 +190,36 @@ end;
 //Установка темы двойным щелчком в списке
 procedure TMainForm.ListBox1DblClick(Sender: TObject);
 begin
-  if MessageDlg(SChangePlymouthQuery, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-
-    StartProcess('printf "\033[1;31mThe installation of the \"' +
-      ListBox1.Items[ListBox1.ItemIndex] +
-      '\" theme is underway. Please, wait...\033[0m\n\n"; plymouth-set-default-theme -R '
-      +
-      ListBox1.Items[ListBox1.ItemIndex], 'xterm');
+  if ListBox1.SelCount <> 0 then
+    if MessageDlg(SChangePlymouthQuery, mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+      TStartInstallTheme.Create;
 end;
 
 //Обновить список тем
 procedure TMainForm.RefreshBtnClick(Sender: TObject);
 begin
-  StartProcess('plymouth-set-default-theme -l', 'sh');
+  StartProcess('plymouth-set-default-theme -l');
 end;
 
 procedure TMainForm.AboutBtnClick(Sender: TObject);
 begin
   MyAboutForm.Show;
+end;
+
+//Запуск индикатора
+procedure TMainForm.Timer2Timer(Sender: TObject);
+var
+  Bmp: TBitmap;
+begin
+  Bmp := TBitmap.Create;
+  try
+    ImageList1.GetBitmap(b, Bmp);
+    Image29.Picture.Assign(Bmp);
+    Inc(b);
+    if b = ImageList1.Count then b := 0;
+  finally
+    Bmp.Free;
+  end;
 end;
 
 //Просмотр темы в реальном времени
@@ -205,28 +231,45 @@ begin
     MessageDlg(SViewPlymouthTheme, mtInformation, [mbOK], 0);
   end;
 
- { StartProcess('sh -c "echo ' + '''' + 'Preparing Plymouth theme...' +
-    '''' + '; plymouth-set-default-theme ' + ListBox1.Items[ListBox1.ItemIndex] +
-    '; plymouthd; plymouth --show-splash; for ((I=0; I<10; I++)); do plymouth --update=test$I; '
-    + 'sleep 1; done; plymouth quit"', 'xterm');}
-
-  StartProcess('plymouth-set-default-theme ' + ListBox1.Items[ListBox1.ItemIndex] +
-    '; plymouthd; plymouth --show-splash; for ((I=0; I<10; I++)); do plymouth --update=test$I; '
-    + 'sleep 1; done; plymouth quit', 'sh');
+  PreviewPlymouthTheme(ListBox1.Items[ListBox1.ItemIndex]);
 end;
 
 procedure TMainForm.FormCreate(Sender: TObject);
 var
+  bmp: TBitmap;
   WorkDir: string;
 begin
+  // Устраняем баг иконки приложения
+  bmp := TBitmap.Create;
+  try
+    bmp.PixelFormat := pf32bit;
+    bmp.Assign(Image30.Picture.Graphic);
+    Application.Icon.Assign(bmp);
+  finally
+    bmp.Free;
+  end;
+
   //Рабочая директория в профиле
-  WorkDir := GetEnvironmentVariable('HOME') + '/.config/pchanger';
+  WorkDir := GetUserDir + '.config/pchanger';
 
   if not DirectoryExists(WorkDir) then
-    StartProcess('mkdir -p ' + WorkDir, 'sh');
+    ForceDirectories(WorkDir);
 
   XMLPropStorage1.FileName := WorkDir + '/settings.xml';
 end;
 
+//Защита от случайного закрытия формы при работе dracut / установке темы
+procedure TMainForm.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+var
+  S: string;
+begin
+  RunCommand('pgrep', ['dracut'], S);
+
+  if Trim(S) <> '' then
+  begin
+    MessageDlg(SInstallThemeWarning, mtWarning, [mbOK], 0);
+    CanClose := False;
+  end;
+end;
 
 end.

@@ -7,7 +7,7 @@
         <CompatibilityMode Value="True"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="Plymouth Changer v1.5"/>
+      <Title Value="Plymouth Changer v1.6"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -73,7 +73,7 @@
         <PackageName Value="LCL"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="3">
+    <Units Count="4">
       <Unit0>
         <Filename Value="pchanger.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -93,6 +93,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="installthemetdr.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="InstallThemeTDR"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

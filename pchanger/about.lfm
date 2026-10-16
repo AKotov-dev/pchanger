@@ -1,22 +1,20 @@
 object MyAboutForm: TMyAboutForm
-  Left = 288
+  Left = 337
   Height = 236
-  Top = 124
+  Top = 130
   Width = 414
   Caption = 'About'
   ClientHeight = 236
   ClientWidth = 414
+  LCLVersion = '4.4.0.0'
   OnShow = FormShow
-  Position = poMainFormCenter
-  LCLVersion = '2.2.4.0'
   object Label1: TLabel
     Left = 111
-    Height = 24
+    Height = 25
     Top = 12
-    Width = 209
+    Width = 172
     Caption = 'Plymouth Changer'
     Font.Height = -20
-    Font.Name = 'Sans'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
@@ -75,8 +73,8 @@ object MyAboutForm: TMyAboutForm
     Left = 111
     Height = 119
     Top = 50
-    Width = 253
-    Caption = 'Plymouth change program'#10'  '#10'License: GPLv3'#10'Compilation: Lazarus 2.2.4'#10'Author: alex_q_2000 (C) 2020'#10'  '#10'Russian Linux Forum: https://linuxforum.ru'
+    Width = 250
+    Caption = 'Plymouth change program'#10'  '#10'License: GPLv3'#10'Compilation: Lazarus 4.4'#10'Author: alex_q_2000 (C) 2026'#10'  '#10'https://github.com/AKotov-dev/pchanger'
     ParentColor = False
   end
   object Bevel1: TBevel
@@ -105,7 +103,7 @@ object MyAboutForm: TMyAboutForm
     Width = 78
     BorderSpacing.Right = 172
     Caption = 'Ok'
-    OnClick = Button1Click
     TabOrder = 0
+    OnClick = Button1Click
   end
 end

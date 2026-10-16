@@ -2,13 +2,13 @@
 name=pchanger
 
 [VERSION]
-version=1.5
+version=1.6
 
 [RELEASE]
-release=0.mrx9
+release=0.mrx10
 
 [GROUP]
-group=Applications/System
+group=Graphics/Utilities
 
 [DESCRIPTION]
 0=The program is designed to easily change the Plymouth theme in MgaRemix Linux
@@ -19,7 +19,7 @@ group=Applications/System
 maintainer=Alex Kotov
 
 [VENDOR]
-vendor=alex_q_2000 (C) 2022
+vendor=alex_q_2000 (C) 2026
 
 [SUMMARY]
 summary=Plymouth theme changer
@@ -28,19 +28,16 @@ summary=Plymouth theme changer
 urlcopy=https://github.com/AKotov-dev/pchanger
 
 [LICENSE]
-license=GPLv3
+license=GPL-3.0-or-later
 
 [DEPS]
-deps=xterm binutils plymouth plymouth-x11 plymouth-plugin-two-step gtk2
+deps=plymouth plymouth-x11 plymouth-plugin-two-step gtk2
 
 [META]
 meta=0
 
 [NOARCH]
 noarch=0
-
-[SIGN]
-sign=0
 
 [DEB]
 deb=0
@@ -84,9 +81,6 @@ deb=0
 [URL32]
 url32=https://github.com/AKotov-dev/pchanger
 
-[URL64]
-url64=
-
 [PROGRAMNAME]
 programname=PChanger
 
@@ -94,7 +88,7 @@ programname=PChanger
 devtool=Lazarus
 
 [TOOLVERSION]
-toolversion=2.2.4
+toolversion=4.4
 
 [INFO]
 0=The program is designed to easily change the Plymouth theme in MgaRemix Linux
@@ -105,15 +99,22 @@ toolversion=2.2.4
 5=---
 6=plymouthd; plymouth --show-splash ; for ((I=0; I<10; I++)); do plymouth --update=test$I ; sleep 1; done; plymouth quit
 7=
-8=v1.5
-9=+ Recompilation in Lazarus-2.2.4
-10=+ Improved interface (Plasma/Hi-DPI)
-11=+ Improved output of theme application progress
-12=+ Auto-selection at startup with privileges: pkexec/kdesu
-13=+ RPM Packages for Mageia-8 and Mageia-9
+8=v1.6
+9=+ Built with Lazarus 4.4
+10=+ Removed xterm from dependencies
+11=+ Progress indicator for theme installation
+12=+ Theme installation interruption protection
+13=+ Mageia 10 RPM packages
 14=
-15=v1.4
-16=+ recompilation in Lazarus-2.2.0
-17=+ rpm: added gtk2 dependency (for GNOME)
-18=+ replacing sakura terminal with xterm (bug: https://github.com/dabisu/sakura/issues/16)
-19=+ reassembly of rpm packages (including additional themes-130) with a new prefix *.mrx9
+15=v1.5
+16=+ Recompilation in Lazarus-2.2.4
+17=+ Improved interface (Plasma/Hi-DPI)
+18=+ Improved output of theme application progress
+19=+ Auto-selection at startup with privileges: pkexec/kdesu
+20=+ RPM Packages for Mageia-8 and Mageia-9
+21=
+22=v1.4
+23=+ recompilation in Lazarus-2.2.0
+24=+ rpm: added gtk2 dependency (for GNOME)
+25=+ replacing sakura terminal with xterm (bug: https://github.com/dabisu/sakura/issues/16)
+26=+ reassembly of rpm packages (including additional themes-130) with a new prefix *.mrx9

@@ -3,19 +3,19 @@ program pchanger;
 {$mode objfpc}{$H+}
 
 uses
- {$IFDEF UNIX}{$IFDEF UseCThreads}
-  cthreads,
-      {$ENDIF}    {$ENDIF}
+  {$IFDEF UNIX}
+  cthreads,  {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms,
   Unit1,
-  about;
+  about,
+  InstallThemeTDR;
 
-{$R *.res}
+  {$R *.res}
 
 begin
   Application.Scaled := True;
-  Application.Title := 'Plymouth Changer v1.5';
+  Application.Title := 'Plymouth Changer v1.6';
   RequireDerivedFormResource := True;
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
