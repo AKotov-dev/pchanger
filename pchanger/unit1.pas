@@ -225,12 +225,18 @@ end;
 //Просмотр темы в реальном времени
 procedure TMainForm.ViewBtnClick(Sender: TObject);
 begin
+  //Игнорируем текстовые логи
+  if (ListBox1.Items[ListBox1.ItemIndex] = 'details') or
+    (ListBox1.Items[ListBox1.ItemIndex] = 'text') then Exit;
+
+  //Флаг одноразового сообщения
   if a then
   begin
     a := False;
     MessageDlg(SViewPlymouthTheme, mtInformation, [mbOK], 0);
   end;
 
+  //Просмотр темы без установки (X11 Only)
   PreviewPlymouthTheme(ListBox1.Items[ListBox1.ItemIndex]);
 end;
 

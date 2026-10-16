@@ -116,7 +116,7 @@ begin
       'CURRENT_THEME="$(plymouth-set-default-theme)"; ' +
       'plymouth-set-default-theme ' + ThemeName + '; ' +
       'plymouthd --debug; ' + 'plymouth --show-splash; ' +
-      'for ((I=0; I<10; I++)); do sudo plymouth --update=test$I; sleep 1; done; ' +
+      'for ((I=0; I<10; I++)); do plymouth --update=test$I; sleep 1; done; ' +
       'plymouth --quit; plymouth-set-default-theme "$CURRENT_THEME"');
 
     AProcess.Options := [poNoConsole];
@@ -230,6 +230,10 @@ begin
     a := False;
     MessageDlg(SViewPlymouthTheme, mtInformation, [mbOK], 0);
   end;
+
+  //Игнорируем текстовые логи
+  if (ListBox1.Items[ListBox1.ItemIndex] = 'details') or
+    (ListBox1.Items[ListBox1.ItemIndex] = 'text') then Exit;
 
   PreviewPlymouthTheme(ListBox1.Items[ListBox1.ItemIndex]);
 end;
