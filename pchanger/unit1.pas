@@ -227,7 +227,8 @@ procedure TMainForm.ViewBtnClick(Sender: TObject);
 begin
   //Игнорируем текстовые логи
   if (ListBox1.Items[ListBox1.ItemIndex] = 'details') or
-    (ListBox1.Items[ListBox1.ItemIndex] = 'text') then Exit;
+    (ListBox1.Items[ListBox1.ItemIndex] = 'text') or
+    (ListBox1.Items[ListBox1.ItemIndex] = 'tribar') then Exit;
 
   //Флаг одноразового сообщения
   if a then
